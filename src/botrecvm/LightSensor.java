@@ -13,14 +13,26 @@ import java.util.Observer;
  */
 public class LightSensor {
     
-    Motor motor=true;
-    Controller controller;
+    boolean first=true;
+    private Motor motor;
+    private Controller controller;
     
-    public LightSensor (Boolean m, Controller controller) {
-        motor = new Motor(m);
-        
+    public LightSensor (Motor m, Controller c) {
+      this.controller = c;
+      this.motor = m;
+      
+      
     }
     
+    public void checkBottle (int bottle) {
+    
+       // if(bottle == 1){
+       this.setFirst();
+            motor.startMotor();
+            first = false;
+            controller.bottleAdded(bottle);
+       // }
+    }
     //TODO 1:
     //Create private members for Motor and Controller objects. Also Boolean type member first (Init as true, This to know if the bottle was first)
     //Create constructor (Parameters Motor and Controller objects)

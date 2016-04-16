@@ -11,17 +11,17 @@ public class Controller {
         display = new Display(o);          
         printer = new Printer(o);          
     }
-    
+
+      
     public void buttonPressed(int ticket){
-        //float price = printer.printTicket(ticket);
-       // if(sum >= price) {
+           // sum=0;
             printer.printTicket(sum);
-            display.show("Take the ticket");
-            sum=0;
-        //}
+            display.show(sum);
+            
     }
     
     public void bottleAdded(int bottle) {
+        
         float value=0.0f;
         switch(bottle)
         {
@@ -33,10 +33,11 @@ public class Controller {
             break;
             default: value = Constants.INVALID;
          }
-        Controller.buttonPressed(value);
+        sum += value;
+        display.show(sum);
     }
        
-    }
+}
     
     //TODO1:
     //Create private members: sum (float), Display and Printer object members (Associations)
@@ -50,5 +51,3 @@ public class Controller {
     //Create bottleAdded() method (bottle as parameters type int)
     //Check the value of bottle parameter: 20  --> 0.2f, 15  --> 0.15f or 30  --> 0.3f (Or then INVALID)
     //Add the value to the sum and call show() method of display object (sum as parameter)
-  
-}

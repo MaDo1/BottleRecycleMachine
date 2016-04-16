@@ -5,18 +5,27 @@
  */
 package botrecvm;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author vvaisan
  */
 public class MoveSensor {
+    
     private Motor motor;
     private Controller controller;
     
-    public MoveSensor (){
-    
+    public MoveSensor (Object motor, Object controller){
+         this.motor = (Motor) motor;
+         this.controller = (Controller) controller;
     }
+    
     public void buttonPressed() {
+        this.controller.buttonPressed(0);
+        this.motor.stopMotor();
+        
     
     }
     

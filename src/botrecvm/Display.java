@@ -22,7 +22,5 @@ public class Display extends Observable {
         notifyObservers((Object)event);
     }
 
-    void show(String take_the_ticket) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

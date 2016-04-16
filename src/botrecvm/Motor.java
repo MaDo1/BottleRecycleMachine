@@ -18,7 +18,7 @@ public class Motor extends Observable {
     
     private int state = STOPPED;
     
-    public Motor (Observable myobs){
+    public Motor (Observer myobs){
         this.addObserver(myobs);
     }
     
@@ -35,7 +35,7 @@ public class Motor extends Observable {
     public void startMotor() {
         state=RUNNING;
         setChanged(); // the two methods of Observable class
-        Event event = new Event(Constants.EVENT_MOTOR_START,);
+        Event event = new Event(Constants.EVENT_MOTOR_START, 0);
         notifyObservers((Object)event);
     }
     
@@ -43,8 +43,9 @@ public class Motor extends Observable {
     //Create stopMotor method: Set state as STOPPED, then call setChanged() method, create Event object with 0 data and call notifyObservers((Object)event);
    
     public void stopMotor(){
-    setChanged();
-    Event event = new Event(Constants.EVENT_MOTOR_STOP,);
-    notifyObservers ((Object)event);
+        state=STOPPED;
+        setChanged();
+        Event event = new Event(Constants.EVENT_MOTOR_STOP,0);
+        notifyObservers ((Object)event);
     }
 }
